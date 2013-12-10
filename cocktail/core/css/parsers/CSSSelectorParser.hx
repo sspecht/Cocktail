@@ -362,7 +362,7 @@ class CSSSelectorParser
 		
 		var pseudoClass:String = selector.substr(start, position - start);
 		
-		var typedPseudoClass:PseudoClassSelectorValue = null;
+		var typedPseudoClass:PseudoClassSelectorValue = PseudoClassSelectorValue.UNKNOWN;
 		
 		switch(pseudoClass)
 		{
@@ -407,6 +407,9 @@ class CSSSelectorParser
 				
 			case 'target':
 				typedPseudoClass = PseudoClassSelectorValue.TARGET;
+
+			case 'fullscreen':
+				typedPseudoClass = PseudoClassSelectorValue.FULLSCREEN;
 				
 			case 'nth-child':
 				//TODO
@@ -472,6 +475,9 @@ class CSSSelectorParser
 				
 			case 'after':
 				typedPseudoElement = PseudoElementSelectorValue.AFTER;
+
+			default:
+				typedPseudoElement = PseudoElementSelectorValue.NONE;
 				
 		}
 		

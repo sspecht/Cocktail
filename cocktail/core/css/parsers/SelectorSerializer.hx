@@ -183,6 +183,9 @@ class SelectorSerializer
 				
 			case TARGET:
 				return ":target";
+
+            case FULLSCREEN:
+                return ":fullscreen";
 				
 			case LANG(value):
 				return serializeLangPseudoClassSelector(value);
@@ -195,6 +198,9 @@ class SelectorSerializer
 				
 			case NOT(value):
 				return ":not("+serializeSimpleSelectorSequence(value)+")";
+			
+			case UNKNOWN:
+				return "";
 		}
 	}
 	
